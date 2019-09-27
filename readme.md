@@ -11,6 +11,8 @@ This Application shows basic usage of :
 
 ### Minimum Requirements
 - [Composer](https://getcomposer.org/).
+- Apache Server
+- MySQL
 - PHP >= 7.2
 - BCMath PHP Extension
 - Ctype PHP Extension
@@ -36,7 +38,10 @@ cp .env.example .env
 ```bash
 php artisan migrate
 ```
-
+- Run the server
+```bash
+php artisan serve
+```
 ## Usage
 
 ```You can register a user and then log in to view all registered users.
