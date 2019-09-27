@@ -44,7 +44,7 @@ php artisan serve
 ```
 ## Usage
 
-```You can register a user and then log in to view all registered users.
-If you perform any CRUD operations on the user an Observable will register that into log file.
-There's also a job that is dispatched if a user is edited.
-```
+> You can register a user and then log in to view all registered users.
+> If you perform any CRUD operations on the user an Observable will register that into log file.
+> There's also a job that is dispatched if a user is edited.
+
