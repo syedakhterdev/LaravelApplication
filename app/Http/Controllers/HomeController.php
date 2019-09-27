@@ -29,18 +29,22 @@ class HomeController extends Controller
         $data['users'] = $users;
         return view('home', $data);
     }
-    public function updateUser(Request $request) {
+
+    public function update(Request $request) {
         $userId = $request->input('id');
         if($userId){
             $name = $request->input('name');
             $email = $request->input('email');
+
             $findUser = User::find($userId)->update(['name' => $name, 'email' => $email ]);
             if($findUser){
+               //dispatching Job
+                $alertJob = new UpdateUserAlert();
+                dispatch($alertJob);
+
                 return response()->json(['status' => 1, 'message' => "User {$name} updated successfully"]);
             }
 
-            $alertJob = new UpdateUserAlert();
-            dispatch($alertJob);
 
             return response()->json(['status' => 0, 'message' => 'error']);
         }
